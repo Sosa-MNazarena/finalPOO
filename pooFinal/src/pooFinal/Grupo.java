@@ -1,5 +1,6 @@
 package pooFinal;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -39,8 +40,8 @@ public class Grupo extends EtapaMundial{
 		this.equiposAgrupados.add(equipo);
 	}
 	
-	public void generarPartidos() {
-        super.addPartidos(this.equiposAgrupados);
+	public void generarPartidos(ArrayList<LocalDate> fechas) {
+        super.addPartidos(this.equiposAgrupados, fechas);
     }
 	
 	@Override

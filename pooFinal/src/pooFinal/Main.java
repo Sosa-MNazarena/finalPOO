@@ -1,5 +1,6 @@
 package pooFinal;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -46,6 +47,32 @@ public class Main {
 		Equipo ghana = new Equipo("Ghana", null);
 		Equipo uruguay = new Equipo("Uruguay", null);
 		Equipo coreasur = new Equipo("Corea del Sur", null);
+		
+		ArrayList<LocalDate> fechas = new ArrayList<>();
+        fechas.add(LocalDate.of(2024, 7, 1));
+        fechas.add(LocalDate.of(2024, 7, 2));
+        fechas.add(LocalDate.of(2024, 7, 3));
+        fechas.add(LocalDate.of(2024, 7, 4));
+        fechas.add(LocalDate.of(2024, 7, 5));
+        fechas.add(LocalDate.of(2024, 7, 6));
+        fechas.add(LocalDate.of(2024, 7, 7));
+        fechas.add(LocalDate.of(2024, 7, 8));
+        fechas.add(LocalDate.of(2024, 7, 9));
+        fechas.add(LocalDate.of(2024, 7, 10));
+        fechas.add(LocalDate.of(2024, 7, 11));
+        fechas.add(LocalDate.of(2024, 7, 12));
+        fechas.add(LocalDate.of(2024, 7, 13));
+        fechas.add(LocalDate.of(2024, 7, 14));
+        fechas.add(LocalDate.of(2024, 7, 15));
+        fechas.add(LocalDate.of(2024, 7, 16));
+        fechas.add(LocalDate.of(2024, 7, 17));
+        fechas.add(LocalDate.of(2024, 7, 18));
+        fechas.add(LocalDate.of(2024, 7, 19));
+        fechas.add(LocalDate.of(2024, 7, 20));
+        fechas.add(LocalDate.of(2024, 7, 21));
+        fechas.add(LocalDate.of(2024, 7, 22));
+        fechas.add(LocalDate.of(2024, 7, 23));
+        fechas.add(LocalDate.of(2024, 7, 24));
 		
 		Grupo a = new Grupo("Grupo A", null, null, null);
 		Grupo b = new Grupo("Grupo B", null, null, null);
@@ -96,14 +123,14 @@ public class Main {
 		h.addEquipo(coreasur);
 		h.addEquipo(ghana);
 		
-		crearPartidos(a);
-	    crearPartidos(b);
-	    crearPartidos(c);
-	    crearPartidos(d);
-	    crearPartidos(e);
-	    crearPartidos(f);
-	    crearPartidos(g);
-	    crearPartidos(h);
+		crearPartidos(a, fechas);
+	    crearPartidos(b, fechas);
+	    crearPartidos(c, fechas);
+	    crearPartidos(d, fechas);
+	    crearPartidos(e, fechas);
+	    crearPartidos(f, fechas);
+	    crearPartidos(g, fechas);
+	    crearPartidos(h, fechas);
 	    
 	    imprimirPartidos(a);
 	    imprimirPartidos(b);
@@ -115,31 +142,5 @@ public class Main {
 	    imprimirPartidos(h);
 		
 	}
-
-		
-	
-
-
-private static void crearPartidos(Grupo grupo) {
-    ArrayList<Equipo> equipos = grupo.getEquiposAgrupados();
-
-    for (int i = 0; i < equipos.size(); i++) {
-        for (int j = i + 1; j < equipos.size(); j++) {
-            Equipo equipoLocal = equipos.get(i);
-            Equipo equipoVisitante = equipos.get(j);
-
-            Partido partido = new Partido(new Date(), equipoLocal, equipoVisitante, null);
-            grupo.getPartidos().add(partido);
-        }
-    }
-}
-
-private static void imprimirPartidos(Grupo grupo) {
-    System.out.println("Partidos de " + grupo.getDescripcionEtapa() + ":");
-    for (Partido partido : grupo.getPartidos()) {
-        System.out.println(partido.getEquipoLocal().getName() + " vs " + partido.getEquipoVisitante().getName());
-    }
-    System.out.println();
-}
 
 }

@@ -1,15 +1,15 @@
 package pooFinal;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Partido {
-	private Date fecha;
+	private LocalDate fecha;
 	private Equipo equipoLocal;
     private Equipo equipoVisitante;
     private Resultado resultado;
     
-    public Partido(Date fecha, Equipo equipoLocal, Equipo equipoVisitante, Resultado resultado) {
+    public Partido(LocalDate fecha, Equipo equipoLocal, Equipo equipoVisitante, Resultado resultado) {
 		super();
 		this.fecha = fecha;
 		this.equipoLocal = equipoLocal;
@@ -17,10 +17,10 @@ public class Partido {
 		this.resultado = resultado;
 	}
     
-	public Date getFecha() {
+	public LocalDate getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
 	public Equipo getEquipoLocal() {

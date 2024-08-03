@@ -1,5 +1,6 @@
 package pooFinal;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -31,22 +32,26 @@ public class EtapaMundial {
 		return "EtapaMundial [descripcionEtapa=" + descripcionEtapa + "]";
 	}
 
-	 public void addPartidos(ArrayList<Equipo> equipos) {
+	 public void addPartidos(ArrayList<Equipo> equipos, ArrayList<LocalDate> fechas) {
+		 int fechaIndex = 0;
 	        for (int i = 0; i < equipos.size(); i++) {
 	            for (int j = i + 1; j < equipos.size(); j++) {
 	                Equipo equipoLocal = equipos.get(i);
 	                Equipo equipoVisitante = equipos.get(j);
-
-	                Partido partido = new Partido(new Date(), equipoLocal, equipoVisitante, null);
+	                
+	                LocalDate fechaPartido = fechas.get(fechaIndex / 2);
+	                Partido partido = new Partido(fechaPartido, equipoLocal, equipoVisitante, null);
 	                this.partidos.add(partido);
+	                fechaIndex++;
 	            }
 	        }
 	    }
 
     public void imprimirPartidos() {
-        System.out.println("Partidos de " + getDescripcionEtapa() + ":");
+        System.out.println("Partidos del " + getDescripcionEtapa() + ":");
         for (Partido partido : this.partidos) {
-            System.out.println(partido.getEquipoLocal().getName() + " vs " + partido.getEquipoVisitante().getName());
+        	LocalDate fechaPartido = partido.getFecha();
+            System.out.println("\n" + partido.getEquipoLocal().getName() + " vs " + partido.getEquipoVisitante().getName() + "\nFecha:" + fechaPartido);
         }
         System.out.println();
     }
