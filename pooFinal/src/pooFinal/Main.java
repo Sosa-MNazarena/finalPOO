@@ -42,6 +42,17 @@ public class Main {
 		Equipo ghana = new Equipo("Ghana", null);
 		Equipo uruguay = new Equipo("Uruguay", null);
 		Equipo coreasur = new Equipo("Corea del Sur", null);
+		
+		Grupo a = new Grupo("Grupo A", null);
+		Grupo b = new Grupo("Grupo B", null);
+		Grupo c = new Grupo("Grupo C", null);
+		Grupo d = new Grupo("Grupo D", null);
+		Grupo e = new Grupo("Grupo E", null);
+		Grupo f = new Grupo("Grupo F", null);
+		Grupo g = new Grupo("Grupo G", null);
+		Grupo h = new Grupo("Grupo H", null);
+		
+		
 	}
 
 }
