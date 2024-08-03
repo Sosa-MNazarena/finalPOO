@@ -44,14 +44,14 @@ public class Main {
 		Equipo uruguay = new Equipo("Uruguay", null);
 		Equipo coreasur = new Equipo("Corea del Sur", null);
 		
-		Grupo a = new Grupo("Grupo A", null);
-		Grupo b = new Grupo("Grupo B", null);
-		Grupo c = new Grupo("Grupo C", null);
-		Grupo d = new Grupo("Grupo D", null);
-		Grupo e = new Grupo("Grupo E", null);
-		Grupo f = new Grupo("Grupo F", null);
-		Grupo g = new Grupo("Grupo G", null);
-		Grupo h = new Grupo("Grupo H", null);
+		Grupo a = new Grupo("Grupo A", null, null, null);
+		Grupo b = new Grupo("Grupo B", null, null, null);
+		Grupo c = new Grupo("Grupo C", null, null, null);
+		Grupo d = new Grupo("Grupo D", null, null, null);
+		Grupo e = new Grupo("Grupo E", null, null, null);
+		Grupo f = new Grupo("Grupo F", null, null, null);
+		Grupo g = new Grupo("Grupo G", null, null, null);
+		Grupo h = new Grupo("Grupo H", null, null, null);
 		
 		a.addEquipo(qatar);
 		a.addEquipo(ecuador);
