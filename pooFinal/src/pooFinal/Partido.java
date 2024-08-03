@@ -1,5 +1,6 @@
 package pooFinal;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Partido {

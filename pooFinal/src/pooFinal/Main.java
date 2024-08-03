@@ -1,5 +1,8 @@
 package pooFinal;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -93,6 +96,50 @@ public class Main {
 		h.addEquipo(coreasur);
 		h.addEquipo(ghana);
 		
+		crearPartidos(a);
+	    crearPartidos(b);
+	    crearPartidos(c);
+	    crearPartidos(d);
+	    crearPartidos(e);
+	    crearPartidos(f);
+	    crearPartidos(g);
+	    crearPartidos(h);
+	    
+	    imprimirPartidos(a);
+	    imprimirPartidos(b);
+	    imprimirPartidos(c);
+	    imprimirPartidos(d);
+	    imprimirPartidos(e);
+	    imprimirPartidos(f);
+	    imprimirPartidos(g);
+	    imprimirPartidos(h);
+		
 	}
+
+		
+	
+
+
+private static void crearPartidos(Grupo grupo) {
+    ArrayList<Equipo> equipos = grupo.getEquiposAgrupados();
+
+    for (int i = 0; i < equipos.size(); i++) {
+        for (int j = i + 1; j < equipos.size(); j++) {
+            Equipo equipoLocal = equipos.get(i);
+            Equipo equipoVisitante = equipos.get(j);
+
+            Partido partido = new Partido(new Date(), equipoLocal, equipoVisitante, null);
+            grupo.getPartidos().add(partido);
+        }
+    }
+}
+
+private static void imprimirPartidos(Grupo grupo) {
+    System.out.println("Partidos de " + grupo.getDescripcionEtapa() + ":");
+    for (Partido partido : grupo.getPartidos()) {
+        System.out.println(partido.getEquipoLocal().getName() + " vs " + partido.getEquipoVisitante().getName());
+    }
+    System.out.println();
+}
 
 }
