@@ -1,13 +1,16 @@
 package pooFinal;
 
+import java.util.ArrayList;
+
 public class Equipo {
 	private String name;
 	private int golesEquipo;
+    private ArrayList<Partido> partidosJugados;
     
-    public Equipo(String name, int golesEquipo, ArrayList<Partido> partidosJugados, ArrayList<Jugador> jugadores) {
+    public Equipo(String name, ArrayList<Partido> partidosJugados) {
 		super();
 		this.name = name;
-		this.golesEquipo = golesEquipo;
+		this.partidosJugados = partidosJugados;
 	}
 
 	public String getName() {
@@ -16,11 +19,11 @@ public class Equipo {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getGolesEquipo() {
-		return golesEquipo;
+	public ArrayList<Partido> getPartidosJugados() {
+		return partidosJugados;
 	}
-	public void setGolesEquipo(int golesEquipo) {
-		this.golesEquipo = golesEquipo;
+	public void setPartidosJugados(ArrayList<Partido> partidosJugados) {
+		this.partidosJugados = partidosJugados;
 	}
 	
 	 @Override
