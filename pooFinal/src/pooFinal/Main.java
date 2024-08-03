@@ -72,6 +72,27 @@ public class Main {
 		d.addEquipo(dinamarca);
 		d.addEquipo(australia);
 		d.addEquipo(tunez);
+		
+		e.addEquipo(espana);
+		e.addEquipo(alemania);
+		e.addEquipo(japon);
+		e.addEquipo(costarica);
+		
+		f.addEquipo(belgica);
+		f.addEquipo(croacia);
+		f.addEquipo(marruecos);
+		f.addEquipo(canada);
+		
+		g.addEquipo(brasil);
+		g.addEquipo(serbia);
+		g.addEquipo(suiza);
+		g.addEquipo(camerun);
+		
+		h.addEquipo(portugal);
+		h.addEquipo(uruguay);
+		h.addEquipo(coreasur);
+		h.addEquipo(ghana);
+		
 	}
 
 }
