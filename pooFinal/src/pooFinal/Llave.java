@@ -2,12 +2,13 @@ package pooFinal;
 
 import java.util.ArrayList;
 
-public class Llave {
+public class Llave extends EtapaMundial{
 	private ArrayList<Equipo> equiposEnfrentados;
     private String nombreEtapa;
     
-	public Llave(ArrayList<Equipo> equiposEnfrentados, String nombreEtapa) {
-		super();
+	public Llave(String descripcionEtapa, ArrayList<Partido> partidos, ArrayList<Equipo> equiposEnfrentados,
+			String nombreEtapa) {
+		super(descripcionEtapa, partidos);
 		this.equiposEnfrentados = equiposEnfrentados;
 		this.nombreEtapa = nombreEtapa;
 	}
@@ -32,6 +33,10 @@ public class Llave {
 	public String toString() {
 		return "Llave [equiposEnfrentados=" + equiposEnfrentados + ", nombreEtapa=" + nombreEtapa + "]";
 	}
+	
+	
+    
+    
     
     
 }
