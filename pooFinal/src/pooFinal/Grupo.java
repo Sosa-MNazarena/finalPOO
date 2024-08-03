@@ -1,20 +1,21 @@
 package pooFinal;
 
+import java.util.ArrayList;
+
 public class Grupo {
-	private ArrayList<Equipo> equiposConformados;
+	private ArrayList<Equipo> equiposAgrupados;
     private String nombreGrupo;
-	public Grupo(ArrayList<Equipo> equiposConformados, String nombreGrupo) {
+	public Grupo( String nombreGrupo, ArrayList<Equipo> equiposAgrupados) {
 		super();
-		this.equiposConformados = equiposConformados;
+		this.equiposAgrupados = equiposAgrupados;
 		this.nombreGrupo = nombreGrupo;
 	}
 	
-	
-	public ArrayList<Equipo> getEquiposConformados() {
-		return equiposConformados;
+	public ArrayList<Equipo> getEquiposAgrupados() {
+		return equiposAgrupados;
 	}
-	public void setEquiposConformados(ArrayList<Equipo> equiposConformados) {
-		this.equiposConformados = equiposConformados;
+	public void setEquiposAgrupados(ArrayList<Equipo> equiposAgrupados) {
+		this.equiposAgrupados = equiposAgrupados;
 	}
 	public String getNombreGrupo() {
 		return nombreGrupo;
@@ -23,6 +24,9 @@ public class Grupo {
 		this.nombreGrupo = nombreGrupo;
 	}
 	
+	public void addEquipo(Equipo equipo) {
+		equiposAgrupados.add(equipo);
+	}
 	
 	@Override
 	public String toString() {

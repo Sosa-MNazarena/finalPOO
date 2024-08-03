@@ -6,7 +6,7 @@ public class Main {
 		Equipo qatar = new Equipo("Qatar", null);
 		Equipo ecuador = new Equipo("Ecuador", null);
 		Equipo paisesbajos = new Equipo("Paises Bajos", null);
-		Equipo senegai = new Equipo("Senegai", null);
+		Equipo senegal = new Equipo("Senegal", null);
 		
 		Equipo inglaterra = new Equipo("Inglaterra", null);
 		Equipo estadosunidos = new Equipo("Estados Unidos", null);
@@ -30,7 +30,7 @@ public class Main {
 		
 		Equipo belgica = new Equipo("Bélgica", null);
 		Equipo canada = new Equipo("Cánada", null);
-		Equipo maruecos = new Equipo("Maruecos", null);
+		Equipo marruecos = new Equipo("Marruecos", null);
 		Equipo croacia = new Equipo("Croacia", null);
 		
 		Equipo brasil = new Equipo("Brasil", null);
@@ -52,7 +52,25 @@ public class Main {
 		Grupo g = new Grupo("Grupo G", null);
 		Grupo h = new Grupo("Grupo H", null);
 		
+		a.addEquipo(qatar);
+		a.addEquipo(ecuador);
+		a.addEquipo(paisesbajos);
+		a.addEquipo(senegal);
 		
+		b.addEquipo(inglaterra);
+		b.addEquipo(estadosunidos);
+		b.addEquipo(gales);
+		b.addEquipo(iran);
+		
+		c.addEquipo(argentina);
+		c.addEquipo(polonia);
+		c.addEquipo(mexico);
+		c.addEquipo(arabiasaudita);
+		
+		d.addEquipo(francia);
+		d.addEquipo(dinamarca);
+		d.addEquipo(australia);
+		d.addEquipo(tunez);
 	}
 
 }
