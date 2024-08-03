@@ -7,12 +7,22 @@ import java.util.Date;
 public class EtapaMundial {
 	private String descripcionEtapa;
     protected ArrayList<Partido> partidos;
+    private int fechaIndex;
 
 	public EtapaMundial(String descripcionEtapa, ArrayList<Partido> partidos) {
 		super();
 		this.descripcionEtapa = descripcionEtapa;
 		this.partidos = new ArrayList<>();
+		this.fechaIndex = 0;
 	}
+	
+    public int getFechaIndex() {
+        return fechaIndex;
+    }
+
+    public void setFechaIndex(int fechaIndex) {
+        this.fechaIndex = fechaIndex;
+    }
 	
 	public String getDescripcionEtapa() {
 		return descripcionEtapa;
@@ -36,10 +46,13 @@ public class EtapaMundial {
 		 int fechaIndex = 0;
 	        for (int i = 0; i < equipos.size(); i++) {
 	            for (int j = i + 1; j < equipos.size(); j++) {
+	            	if (fechaIndex >= fechas.size()) {
+	                    fechaIndex = 0;
+	                }
 	                Equipo equipoLocal = equipos.get(i);
 	                Equipo equipoVisitante = equipos.get(j);
 	                
-	                LocalDate fechaPartido = fechas.get(fechaIndex / 2);
+	                LocalDate fechaPartido = fechas.get(fechaIndex);
 	                Partido partido = new Partido(fechaPartido, equipoLocal, equipoVisitante, null);
 	                this.partidos.add(partido);
 	                fechaIndex++;
