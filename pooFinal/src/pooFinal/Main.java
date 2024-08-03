@@ -22,6 +22,26 @@ public class Main {
 		Equipo dinamarca = new Equipo("Dinamarca", null);
 		Equipo australia = new Equipo("Australia", null);
 		Equipo tunez = new Equipo("Tunez", null);
+		
+		Equipo espana = new Equipo("España", null);
+		Equipo costarica = new Equipo("Costa Rica", null);
+		Equipo alemania = new Equipo("Alemania", null);
+		Equipo japon = new Equipo("Japón", null);
+		
+		Equipo belgica = new Equipo("Bélgica", null);
+		Equipo canada = new Equipo("Cánada", null);
+		Equipo maruecos = new Equipo("Maruecos", null);
+		Equipo croacia = new Equipo("Croacia", null);
+		
+		Equipo brasil = new Equipo("Brasil", null);
+		Equipo serbia = new Equipo("Serbia", null);
+		Equipo suiza = new Equipo("Suiza", null);
+		Equipo camerun = new Equipo("Camerún", null);
+		
+		Equipo portugal = new Equipo("Portugal", null);
+		Equipo ghana = new Equipo("Ghana", null);
+		Equipo uruguay = new Equipo("Uruguay", null);
+		Equipo coreasur = new Equipo("Corea del Sur", null);
 	}
 
 }
