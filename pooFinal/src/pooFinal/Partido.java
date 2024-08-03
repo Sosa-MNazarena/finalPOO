@@ -17,7 +17,6 @@ public class Partido {
 		this.resultado = resultado;
 	}
     
-    
 	public Date getFecha() {
 		return fecha;
 	}
@@ -51,6 +50,7 @@ public class Partido {
 	}
 	
 	
+
 	
 
 }

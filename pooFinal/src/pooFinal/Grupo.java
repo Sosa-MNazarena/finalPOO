@@ -10,8 +10,8 @@ public class Grupo extends EtapaMundial{
 	public Grupo(String descripcionEtapa, ArrayList<Partido> partidos, ArrayList<Equipo> equiposAgrupados,
 			String nombreGrupo) {
 		super(descripcionEtapa, partidos);
-		this.equiposAgrupados = equiposAgrupados;
-		this.nombreGrupo = nombreGrupo;
+		this.equiposAgrupados = new ArrayList<>();
+        this.partidos = new ArrayList<>();
 	}
 	
 	
@@ -36,27 +36,24 @@ public class Grupo extends EtapaMundial{
 
 
 	public void addEquipo(Equipo equipo) {
-		equiposAgrupados.add(equipo);
+		this.equiposAgrupados.add(equipo);
 	}
+	
+	public void generarPartidos() {
+        super.addPartidos(this.equiposAgrupados);
+    }
 	
 	@Override
 	public String toString() {
 		return "Grupo [nombreGrupo=" + nombreGrupo + "]";
 	}
 	
-	private static void crearPartidos(Grupo grupo) {
-        ArrayList<Equipo> equipos = grupo.getEquiposAgrupados();
-
-        for (int i = 0; i < equipos.size(); i++) {
-            for (int j = i + 1; j < equipos.size(); j++) {
-                Equipo equipoLocal = equipos.get(i);
-                Equipo equipoVisitante = equipos.get(j);
-
-                Partido partido = new Partido(new Date(), equipoLocal, equipoVisitante);
-                grupo.getPartido().add(partido);
-            }
-        }
+	public ArrayList<Partido> getPartidos() {
+        return partidos;
     }
+	
+	
+    
     
     
 
