@@ -3,41 +3,42 @@ package pooFinal;
 public class Main {
 
 	public static void main(String[] args) {
+		//grupoA
 		Equipo qatar = new Equipo("Qatar", null);
 		Equipo ecuador = new Equipo("Ecuador", null);
 		Equipo paisesbajos = new Equipo("Paises Bajos", null);
 		Equipo senegal = new Equipo("Senegal", null);
-		
+		//grupoB
 		Equipo inglaterra = new Equipo("Inglaterra", null);
 		Equipo estadosunidos = new Equipo("Estados Unidos", null);
 		Equipo gales = new Equipo("Gales", null);
 		Equipo iran = new Equipo("Iran", null);
-		
+		//grupoC
 		Equipo argentina = new Equipo("Argentina", null);
 		Equipo polonia = new Equipo("Polonia", null);
 		Equipo mexico = new Equipo("Mexico", null);
 		Equipo arabiasaudita = new Equipo("Arabia Saudita", null);
-		
+		//grupoD
 		Equipo francia = new Equipo("Francia", null);
 		Equipo dinamarca = new Equipo("Dinamarca", null);
 		Equipo australia = new Equipo("Australia", null);
 		Equipo tunez = new Equipo("Tunez", null);
-		
+		//grupoE
 		Equipo espana = new Equipo("España", null);
 		Equipo costarica = new Equipo("Costa Rica", null);
 		Equipo alemania = new Equipo("Alemania", null);
 		Equipo japon = new Equipo("Japón", null);
-		
+		//grupoF
 		Equipo belgica = new Equipo("Bélgica", null);
 		Equipo canada = new Equipo("Cánada", null);
 		Equipo marruecos = new Equipo("Marruecos", null);
 		Equipo croacia = new Equipo("Croacia", null);
-		
+		//grupoG
 		Equipo brasil = new Equipo("Brasil", null);
 		Equipo serbia = new Equipo("Serbia", null);
 		Equipo suiza = new Equipo("Suiza", null);
 		Equipo camerun = new Equipo("Camerún", null);
-		
+		//grupoH
 		Equipo portugal = new Equipo("Portugal", null);
 		Equipo ghana = new Equipo("Ghana", null);
 		Equipo uruguay = new Equipo("Uruguay", null);
