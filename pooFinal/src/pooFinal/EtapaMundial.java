@@ -1,5 +1,7 @@
 package pooFinal;
 
+import java.util.ArrayList;
+
 public class EtapaMundial {
 	private String descripcionEtapa;
     private ArrayList<Partido> partidos;
