@@ -40,6 +40,26 @@ public class Grupo extends EtapaMundial{
 		this.equiposAgrupados.add(equipo);
 	}
 	
+	public ArrayList<Equipo> getEquiposQueAvanzan(){
+		Equipo max1 = null;
+        Equipo max2 = null;
+
+        for (Equipo equipo : equiposAgrupados) {
+            if (max1 == null || equipo.getPuntos() > max1.getPuntos()) {
+                max2 = max1;
+                max1 = equipo;
+            } else if (max2 == null || equipo.getPuntos() > max2.getPuntos()) {
+                max2 = equipo;
+            }
+        }
+
+        ArrayList<Equipo> avanzan = new ArrayList<>();
+        if (max1 != null) avanzan.add(max1);
+        if (max2 != null) avanzan.add(max2);
+
+        return avanzan;
+	}
+	
 	 public void generarPartidos(ArrayList<LocalDate> fechas, int fechaIndex) {
 	        super.addPartidos(this.equiposAgrupados, fechas, fechaIndex);
 	    }

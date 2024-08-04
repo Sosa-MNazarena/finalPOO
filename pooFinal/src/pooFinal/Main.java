@@ -64,6 +64,17 @@ public class Main {
 		Grupo g = new Grupo("GRUPO G", null, null, null);
 		Grupo h = new Grupo("GRUPO H", null, null, null);
 		
+		ArrayList<Grupo> grupos = new ArrayList<>();
+		grupos.add(a);
+	    grupos.add(b);
+	    grupos.add(c);
+	    grupos.add(d);
+	    grupos.add(e);
+	    grupos.add(f);
+	    grupos.add(g);
+	    grupos.add(h);
+	    
+		
 		a.addEquipo(qatar);
 		a.addEquipo(ecuador);
 		a.addEquipo(paisesbajos);
@@ -146,6 +157,71 @@ public class Main {
         f.imprimirPartidos();
         g.imprimirPartidos();
         h.imprimirPartidos();
+        
+        System.out.println("Puntos finales:");
+        System.out.println("Grupo A");
+        for (Equipo equipo : a.getEquiposAgrupados()) {
+            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
+        }
+        System.out.println();
+        System.out.println("Grupo B");
+        for (Equipo equipo : b.getEquiposAgrupados()) {
+        	
+            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
+        }
+        System.out.println();
+        System.out.println("Grupo C");
+        for (Equipo equipo : c.getEquiposAgrupados()) {
+        	
+            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
+        }
+        System.out.println();
+        System.out.println("Grupo D");
+        for (Equipo equipo : d.getEquiposAgrupados()) {
+        	
+            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
+        }
+        System.out.println();
+        System.out.println("Grupo E");
+        for (Equipo equipo : e.getEquiposAgrupados()) {
+        	
+            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
+        }
+        System.out.println();
+        System.out.println("Grupo F");
+        for (Equipo equipo : f.getEquiposAgrupados()) {
+        	
+            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
+        }
+        System.out.println();
+        System.out.println("Grupo G");
+        for (Equipo equipo : g.getEquiposAgrupados()) {
+        	
+            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
+        }
+        System.out.println();
+        System.out.println("Grupo H");
+        for (Equipo equipo : h.getEquiposAgrupados()) {
+        	
+            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
+        }
+        
+        
+        EtapaMundial faseGrupos = new EtapaMundial("Fase de Grupos", new ArrayList<>());
+        ArrayList<Equipo> equiposQueAvanzan = faseGrupos.getEquiposQueAvanzanDeGrupos(grupos);
+
+        ArrayList<LocalDate> fechasOctavos = new ArrayList<>();
+        int diaOctavos = 1;
+        while (diaOctavos <= 8) { 
+            fechasOctavos.add(LocalDate.of(2024, 8, diaOctavos));
+            diaOctavos++;
+        }
+        EtapaMundial octavosDeFinal = new EtapaMundial("Octavos de Final", new ArrayList<>());
+        octavosDeFinal.generarPartidosOctavos(equiposQueAvanzan, fechasOctavos);
+        octavosDeFinal.generarResultados();
+
+        octavosDeFinal.imprimirPartidos();
+    
 		
 	}
 

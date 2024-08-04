@@ -114,4 +114,29 @@ public class EtapaMundial {
         
     }
     
+    public ArrayList<Equipo> getEquiposQueAvanzanDeGrupos(ArrayList<Grupo> grupos) {
+        ArrayList<Equipo> equiposQueAvanzan = new ArrayList<>();
+        for (Grupo grupo : grupos) {
+            equiposQueAvanzan.addAll(grupo.getEquiposQueAvanzan());
+        }
+        return equiposQueAvanzan;
+    }
+    
+    public void generarPartidosOctavos(ArrayList<Equipo> equiposQueAvanzan, ArrayList<LocalDate> fechas) {
+        if (equiposQueAvanzan.size() < 16) {
+            System.out.println("No hay suficientes equipos para generar octavos.");
+            return;
+        }
+
+        for (int i = 0; i < equiposQueAvanzan.size(); i += 4) {
+            Equipo equipo1 = equiposQueAvanzan.get(i);
+            Equipo equipo2 = equiposQueAvanzan.get(i + 3);
+            this.partidos.add(new Partido(fechas.get(i / 2), equipo1, equipo2, null));
+
+            Equipo equipo3 = equiposQueAvanzan.get(i + 1);
+            Equipo equipo4 = equiposQueAvanzan.get(i + 2);
+            this.partidos.add(new Partido(fechas.get(i / 2 + 1), equipo3, equipo4, null));
+        }
+    }
+    
 }
