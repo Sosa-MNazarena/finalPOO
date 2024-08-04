@@ -25,6 +25,12 @@ public class Resultado {
 		return "Resultado [golesLocal=" + golesLocal + ", golesVisitante=" + golesVisitante + "]";
 	}
 	
-    
+	public boolean ganoLocal() {
+        return golesLocal > golesVisitante;
+    }
+
+    public boolean empate() {
+        return golesLocal == golesVisitante;
+    }
 
 }
