@@ -56,9 +56,9 @@ public class Grupo extends EtapaMundial{
         }
     }
 	public void imprimirPartidos() {
-        System.out.println("-PARTIDOS DEL " + getDescripcionEtapa() + "-");
+        System.out.println("-PARTIDOS DE " + getDescripcionEtapa() + "-");
 
-        String mensaje = "-PARTIDOS DEL " + getDescripcionEtapa() + "-\n";
+        String mensaje = "-PARTIDOS DE " + getDescripcionEtapa() + "-\n";
         
         for (Partido partido : this.partidos) {
         	

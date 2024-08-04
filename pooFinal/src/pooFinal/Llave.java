@@ -86,7 +86,36 @@ public class Llave extends EtapaMundial{
         return ganadores;
     }
     
-    
+    public void generarPartidosSemifinales(ArrayList<Equipo> equiposQueAvanzanDeCuartos, ArrayList<LocalDate> fechasSemifinales) {
+        if (equiposQueAvanzanDeCuartos.size() < 4) {
+            System.out.println("No hay suficientes equipos para generar semifinales.");
+            return;
+        }
+
+        for (int i = 0; i < equiposQueAvanzanDeCuartos.size(); i += 2) {
+            Equipo equipo1 = equiposQueAvanzanDeCuartos.get(i);
+            Equipo equipo2 = equiposQueAvanzanDeCuartos.get(i + 1);
+            this.partidos.add(new Partido(fechasSemifinales.get(i / 2), equipo1, equipo2, null));
+            System.out.println("Generado partido: " + equipo1.getName() + " vs " + equipo2.getName());
+        }
+    }
+    public ArrayList<Equipo> getEquiposQueAvanzanDeSemifinales(ArrayList<Equipo> todosLosEquipos) {
+        ArrayList<Equipo> ganadores = new ArrayList<>();
+
+        for (Partido partido : this.partidos) {
+            String ganadorNombre = partido.getGanador();
+
+            if (ganadorNombre != null && !ganadorNombre.equals("Empate")) {
+                for (Equipo equipo : todosLosEquipos) {
+                    if (equipo.getName().equals(ganadorNombre)) {
+                        ganadores.add(equipo);
+                        break;
+                    }
+                }
+            }
+        }
+        return ganadores;
+    }
 
 	 public void resolverEmpates() {
 		    for (Partido partido : this.partidos) {
@@ -124,9 +153,9 @@ public class Llave extends EtapaMundial{
 	
 
 	    public void imprimirPartidos() {
-	        System.out.println("-PARTIDOS DEL " + getDescripcionEtapa() + "-");
+	        System.out.println("-PARTIDOS DE " + getDescripcionEtapa() + "-");
 
-	        String mensaje = "-PARTIDOS DEL " + getDescripcionEtapa() + "-\n";
+	        String mensaje = "-PARTIDOS DE " + getDescripcionEtapa() + "-\n";
 	        
 	        for (Partido partido : this.partidos) {
 	        	LocalDate fechaPartido = partido.getFecha();

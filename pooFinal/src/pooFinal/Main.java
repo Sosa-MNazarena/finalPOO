@@ -221,7 +221,7 @@ public class Main {
             fechasOctavos.add(LocalDate.of(2024, 8, diaOctavos));
             diaOctavos++;
         }
-        Llave octavosDeFinal = new Llave("Octavos de Final", new ArrayList<>(), equiposQueAvanzan, "Octavos");
+        Llave octavosDeFinal = new Llave("OCTAVOS DE FINAL", new ArrayList<>(), equiposQueAvanzan, "OCTAVOS");
         octavosDeFinal.generarPartidosOctavos(equiposQueAvanzan, fechasOctavos);
         octavosDeFinal.generarResultados();
         octavosDeFinal.resolverEmpates();
@@ -237,13 +237,28 @@ public class Main {
             diaCuartos++;
         }
 
-        Llave cuartosDeFinal = new Llave("Cuartos de Final", new ArrayList<>(), equiposQueAvanzanACuartos, "Cuartos");
+        Llave cuartosDeFinal = new Llave("CUARTOS DE FINAL", new ArrayList<>(), equiposQueAvanzanACuartos, "CUARTOS");
         cuartosDeFinal.generarPartidosCuartos(equiposQueAvanzanACuartos, fechasCuartos);
         cuartosDeFinal.generarResultados();
         cuartosDeFinal.resolverEmpates();
         cuartosDeFinal.imprimirPartidos();
-        
+
+    	ArrayList<LocalDate> fechasSemifinales = new ArrayList<>();
+    	int diaSemifinales = 13;
+    	while (diaSemifinales <= 16) { 
+    	    fechasSemifinales.add(LocalDate.of(2024, 8, diaSemifinales)); 
+    	    diaSemifinales++;
+    	}
+
+    	ArrayList<Equipo> equiposQueAvanzanDeCuartos = cuartosDeFinal.getEquiposQueAvanzanDeCuartos(equiposQueAvanzan);
+
+    	Llave semifinales = new Llave("SEMIFINALES", new ArrayList<>(), equiposQueAvanzanDeCuartos, "SEMIFINALES");
+    	semifinales.generarPartidosSemifinales(equiposQueAvanzanDeCuartos, fechasSemifinales);
+    	semifinales.generarResultados();
+    	semifinales.resolverEmpates();
+    	semifinales.imprimirPartidos();
 	}
+
 
 	public static void imprimirPuntos(ArrayList<Grupo> grupos) {
 		String mensaje = "";
