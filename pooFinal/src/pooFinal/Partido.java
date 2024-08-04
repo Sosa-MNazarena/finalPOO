@@ -52,7 +52,6 @@ public class Partido {
 		this.ganador = ganador;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "Partido [fecha=" + fecha + ", equipoLocal=" + equipoLocal + ", equipoVisitante=" + equipoVisitante

@@ -15,31 +15,76 @@ public class Grupo extends EtapaMundial{
         this.partidos = new ArrayList<>();
         this.nombreGrupo = nombreGrupo;
 	}
-	
-	
-	public ArrayList<Equipo> getEquiposAgrupados() {
-		return equiposAgrupados;
-	}
 
+	public void addPartidos(ArrayList<Equipo> equipos, ArrayList<LocalDate> fechas, int fechaIndex) {
+		 int localFechaIndex = fechaIndex;
+	        for (int i = 0; i < equipos.size(); i++) {
+	            for (int j = i + 1; j < equipos.size(); j++) {
+	            	if (fechaIndex >= fechas.size()) {
+	                    fechaIndex = 0;
+	                }
+	                Equipo equipoLocal = equipos.get(i);
+	                Equipo equipoVisitante = equipos.get(j);
+	                
+	                LocalDate fechaPartido = fechas.get(localFechaIndex);
+	                Partido partido = new Partido(fechaPartido, equipoLocal, equipoVisitante, new Resultado(i, j));
+	                this.partidos.add(partido);
+	                fechaIndex++;
+	            }
+	        }
+	    }
+	public void generarResultados() {
+        for (Partido partido : partidos) {
+            int golesLocal = (int) (Math.random() * 5);
+            int golesVisitante = (int) (Math.random() * 5);
+            Resultado resultado = new Resultado(golesLocal, golesVisitante);
+            partido.setResultado(resultado);
 
-	public void setEquiposAgrupados(ArrayList<Equipo> equiposAgrupados) {
-		this.equiposAgrupados = equiposAgrupados;
-	}
+            String ganador;
+            if (golesLocal > golesVisitante) {
+                partido.getEquipoLocal().addPuntos(3);
+                ganador = partido.getEquipoLocal().getName();
+            } else if (golesLocal < golesVisitante) {
+                partido.getEquipoVisitante().addPuntos(3);
+                ganador = partido.getEquipoVisitante().getName();
+            } else {
+                partido.getEquipoLocal().addPuntos(1);
+                partido.getEquipoVisitante().addPuntos(1);
+                ganador = "Empate";
+            }
+            partido.setGanador(ganador);
+        }
+    }
+	public void imprimirPartidos() {
+        System.out.println("-PARTIDOS DEL " + getDescripcionEtapa() + "-");
 
-
-	public String getNombreGrupo() {
-		return nombreGrupo;
-	}
-
-
-	public void setNombreGrupo(String nombreGrupo) {
-		this.nombreGrupo = nombreGrupo;
-	}
-
-
-	public void addEquipo(Equipo equipo) {
-		this.equiposAgrupados.add(equipo);
-	}
+        String mensaje = "-PARTIDOS DEL " + getDescripcionEtapa() + "-\n";
+        
+        for (Partido partido : this.partidos) {
+        	
+        	LocalDate fechaPartido = partido.getFecha();
+        	Resultado resultado = partido.getResultado();
+        	String ganador = partido.getGanador(); 
+        	int golesLocal = resultado.getGolesLocal();
+            int golesVisitante = resultado.getGolesVisitante();
+            
+            System.out.println("\n" + partido.getEquipoLocal().getName() + 
+            		" vs " + partido.getEquipoVisitante().getName() + 
+            		"\nFecha:" + fechaPartido +
+            		"\nResultados: " + golesLocal + "-" + golesVisitante+
+            		"\nGanador: "+ ganador);
+            
+            mensaje +=("\n" + partido.getEquipoLocal().getName() + 
+            		" vs " + partido.getEquipoVisitante().getName() + 
+            		"\nFecha:" + fechaPartido +
+            		"\nResultados: " + golesLocal + "-" + golesVisitante+
+            		"\nGanador: "+ ganador  + "\n---------------");
+           
+        }
+        System.out.println();
+        JOptionPane.showMessageDialog(null, mensaje, "Resultados del Grupo: " + getDescripcionEtapa(), JOptionPane.INFORMATION_MESSAGE);
+        
+    }
 	
 	public ArrayList<Equipo> getEquiposQueAvanzan(){
 		Equipo max1 = null;
@@ -61,9 +106,33 @@ public class Grupo extends EtapaMundial{
         return avanzan;
 	}
 	
-	 public void generarPartidos(ArrayList<LocalDate> fechas, int fechaIndex) {
-	        super.addPartidos(this.equiposAgrupados, fechas, fechaIndex);
-	    }
+	
+	public ArrayList<Equipo> getEquiposAgrupados() {
+		return equiposAgrupados;
+	}
+
+
+	public void setEquiposAgrupados(ArrayList<Equipo> equiposAgrupados) {
+		this.equiposAgrupados = equiposAgrupados;
+	}
+
+
+	public String getNombreGrupo() {
+		return nombreGrupo;
+	}
+	
+	
+
+	public void setNombreGrupo(String nombreGrupo) {
+		this.nombreGrupo = nombreGrupo;
+	}
+
+
+	public void addEquipo(Equipo equipo) {
+		this.equiposAgrupados.add(equipo);
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "GRUPO [nombreGrupo=" + nombreGrupo + "]";
@@ -73,6 +142,4 @@ public class Grupo extends EtapaMundial{
         return partidos;
     }
 
-
-	
 }

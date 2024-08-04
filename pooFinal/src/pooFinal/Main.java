@@ -118,28 +118,29 @@ public class Main {
 		
 		int fechaIndex = 0;
 
-	    a.generarPartidos(fechas, fechaIndex);
-        fechaIndex += 6;
+		a.addPartidos(a.getEquiposAgrupados(), fechas, fechaIndex);
+		fechaIndex += 6;
 
-        b.generarPartidos(fechas, fechaIndex);
-        fechaIndex += 6;
+		b.addPartidos(b.getEquiposAgrupados(), fechas, fechaIndex);
+		fechaIndex += 6;
 
-        c.generarPartidos(fechas, fechaIndex);
-        fechaIndex += 6;
+		c.addPartidos(c.getEquiposAgrupados(), fechas, fechaIndex);
+		fechaIndex += 6;
 
-        d.generarPartidos(fechas, fechaIndex);
-        fechaIndex = 0;
+		d.addPartidos(d.getEquiposAgrupados(), fechas, fechaIndex);
+		fechaIndex = 0;
 
-        e.generarPartidos(fechas, fechaIndex);
-        fechaIndex += 6;
+		e.addPartidos(e.getEquiposAgrupados(), fechas, fechaIndex);
+		fechaIndex += 6;
 
-        f.generarPartidos(fechas, fechaIndex);
-        fechaIndex += 6;
+		f.addPartidos(f.getEquiposAgrupados(), fechas, fechaIndex);
+		fechaIndex += 6;
 
-        g.generarPartidos(fechas, fechaIndex);
-        fechaIndex += 6;
+		g.addPartidos(g.getEquiposAgrupados(), fechas, fechaIndex);
+		fechaIndex += 6;
 
-        h.generarPartidos(fechas, fechaIndex);
+		h.addPartidos(h.getEquiposAgrupados(), fechas, fechaIndex);
+
 	    
         a.generarResultados();
         b.generarResultados();
@@ -220,7 +221,7 @@ public class Main {
             fechasOctavos.add(LocalDate.of(2024, 8, diaOctavos));
             diaOctavos++;
         }
-        EtapaMundial octavosDeFinal = new EtapaMundial("Octavos de Final", new ArrayList<>());
+        Llave octavosDeFinal = new Llave("Octavos de Final", new ArrayList<>(), equiposQueAvanzan, "Octavos");
         octavosDeFinal.generarPartidosOctavos(equiposQueAvanzan, fechasOctavos);
         octavosDeFinal.generarResultados();
         octavosDeFinal.resolverEmpates();
@@ -236,11 +237,12 @@ public class Main {
             diaCuartos++;
         }
 
-        EtapaMundial cuartosDeFinal = new EtapaMundial("Cuartos de Final", new ArrayList<>());
+        Llave cuartosDeFinal = new Llave("Cuartos de Final", new ArrayList<>(), equiposQueAvanzanACuartos, "Cuartos");
         cuartosDeFinal.generarPartidosCuartos(equiposQueAvanzanACuartos, fechasCuartos);
         cuartosDeFinal.generarResultados();
         cuartosDeFinal.resolverEmpates();
         cuartosDeFinal.imprimirPartidos();
+        
 	}
 
 	public static void imprimirPuntos(ArrayList<Grupo> grupos) {
