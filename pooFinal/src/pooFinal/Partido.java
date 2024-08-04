@@ -8,13 +8,16 @@ public class Partido {
 	private Equipo equipoLocal;
     private Equipo equipoVisitante;
     private Resultado resultado;
+    private String ganador; 
     
-    public Partido(LocalDate fecha, Equipo equipoLocal, Equipo equipoVisitante, Resultado resultado) {
+
+	public Partido(LocalDate fecha, Equipo equipoLocal, Equipo equipoVisitante, Resultado resultado) {
 		super();
 		this.fecha = fecha;
 		this.equipoLocal = equipoLocal;
 		this.equipoVisitante = equipoVisitante;
 		this.resultado = resultado;
+		this.ganador = null; 
 	}
     
 	public LocalDate getFecha() {
@@ -40,6 +43,13 @@ public class Partido {
 	}
 	public void setResultado(Resultado resultado) {
 		this.resultado = resultado;
+	}
+	public String getGanador() {
+		return ganador;
+	}
+
+	public void setGanador(String ganador) {
+		this.ganador = ganador;
 	}
 	
 	

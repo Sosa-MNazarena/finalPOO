@@ -58,12 +58,27 @@ public class EtapaMundial {
 	            }
 	        }
 	    }
+	 
 	 public void generarResultados() {
 	        for (Partido partido : partidos) {
 	            int golesLocal = (int) (Math.random() * 5);
 	            int golesVisitante = (int) (Math.random() * 5);
 	            Resultado resultado = new Resultado(golesLocal, golesVisitante);
 	            partido.setResultado(resultado);
+	            
+	            String ganador;
+	            if (golesLocal > golesVisitante) {
+	                partido.getEquipoLocal().addPuntos(3);
+	                ganador = partido.getEquipoLocal().getName();
+	            } else if (golesLocal < golesVisitante) {
+	                partido.getEquipoVisitante().addPuntos(3);
+	                ganador = partido.getEquipoVisitante().getName();
+	            } else {
+	                partido.getEquipoLocal().addPuntos(1);
+	                partido.getEquipoVisitante().addPuntos(1);
+	                ganador = "Empate";
+	            }
+	            partido.setGanador(ganador);
 	        }
 	    }
 
@@ -72,12 +87,14 @@ public class EtapaMundial {
         for (Partido partido : this.partidos) {
         	LocalDate fechaPartido = partido.getFecha();
         	Resultado resultado = partido.getResultado();
-        	 int golesLocal = resultado.getGolesLocal();
-             int golesVisitante = resultado.getGolesVisitante();
+        	String ganador = partido.getGanador(); 
+        	int golesLocal = resultado.getGolesLocal();
+            int golesVisitante = resultado.getGolesVisitante();
             System.out.println("\n" + partido.getEquipoLocal().getName() + 
             		" vs " + partido.getEquipoVisitante().getName() + 
             		"\nFecha:" + fechaPartido +
-            		"\nResultados: " + golesLocal + "-" + golesVisitante);
+            		"\nResultados: " + golesLocal + "-" + golesVisitante+
+            		"\nGanador: "+ ganador);
         }
         System.out.println();
     }

@@ -33,8 +33,8 @@ public class Main {
 		Equipo japon = new Equipo("Japón", null);
 		//grupoF
 		Equipo belgica = new Equipo("Bélgica", null);
-		Equipo canada = new Equipo("Cánada", null);
-		Equipo marruecos = new Equipo("Marruecos", null);
+		Equipo canada = new Equipo("Canadá", null);
+		Equipo marruecos = new Equipo("Maruecos", null);
 		Equipo croacia = new Equipo("Croacia", null);
 		//grupoG
 		Equipo brasil = new Equipo("Brasil", null);
