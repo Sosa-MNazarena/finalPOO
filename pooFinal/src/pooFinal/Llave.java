@@ -8,12 +8,14 @@ import javax.swing.JOptionPane;
 public class Llave extends EtapaMundial{
 	private ArrayList<Equipo> equiposEnfrentados;
     private String nombreEtapa;
+    private String mensajeDesempates;
     
 	public Llave(String descripcionEtapa, ArrayList<Partido> partidos, ArrayList<Equipo> equiposEnfrentados,
 			String nombreEtapa) {
 		super(descripcionEtapa, partidos);
 		this.equiposEnfrentados = equiposEnfrentados;
 		this.nombreEtapa = nombreEtapa;
+		this.mensajeDesempates = "";
 	}
 	public void generarResultados() {
         for (Partido partido : partidos) {
@@ -146,8 +148,13 @@ public class Llave extends EtapaMundial{
 		        if ("Empate".equals(ganador)) {
 		            Equipo ganadorDesempate = Math.random() < 0.5 ? partido.getEquipoLocal() : partido.getEquipoVisitante();
 		            partido.setGanador(ganadorDesempate.getName());
-		            System.out.println("Desempate: El ganador del partido entre " + partido.getEquipoLocal().getName() 
-		                + " y " + partido.getEquipoVisitante().getName() + " es " + ganadorDesempate.getName());
+		            mensajeDesempates += "Desempate: El ganador del partido entre " 
+                            + partido.getEquipoLocal().getName() 
+                            + " y " 
+                            + partido.getEquipoVisitante().getName() 
+                            + " es " 
+                            + ganadorDesempate.getName() 
+                            + "\n";
 		        }
 		    }
 		}
@@ -174,35 +181,36 @@ public class Llave extends EtapaMundial{
 	}
 	
 
-	    public void imprimirPartidos() {
-	        System.out.println("-PARTIDOS DE " + getDescripcionEtapa() + "-");
+    public void imprimirPartidos() {
+        System.out.println("-PARTIDOS DE " + getDescripcionEtapa() + "-");
 
-	        String mensaje = "-PARTIDOS DE " + getDescripcionEtapa() + "-\n";
-	        
-	        for (Partido partido : this.partidos) {
-	        	LocalDate fechaPartido = partido.getFecha();
-	        	Resultado resultado = partido.getResultado();
-	        	String ganador = partido.getGanador(); 
-	        	int golesLocal = resultado.getGolesLocal();
-	            int golesVisitante = resultado.getGolesVisitante();
-	            
-	            System.out.println("\n" + partido.getEquipoLocal().getName() + 
-	            		" vs " + partido.getEquipoVisitante().getName() + 
-	            		"\nFecha:" + fechaPartido +
-	            		"\nResultados: " + golesLocal + "-" + golesVisitante+
-	            		"\nGanador: "+ ganador);
-	            
-	            mensaje +=("\n" + partido.getEquipoLocal().getName() + 
-	            		" vs " + partido.getEquipoVisitante().getName() + 
-	            		"\nFecha:" + fechaPartido +
-	            		"\nResultados: " + golesLocal + "-" + golesVisitante+
-	            		"\nGanador: "+ ganador  + "\n---------------");
-	           
-	        }
-	        System.out.println();
-	        JOptionPane.showMessageDialog(null, mensaje, "Resultados del Grupo: " + getDescripcionEtapa(), JOptionPane.INFORMATION_MESSAGE);
-	        
-	    }
+        String mensaje = "-PARTIDOS DE " + getDescripcionEtapa() + "-\n";
+        
+        for (Partido partido : this.partidos) {
+        	LocalDate fechaPartido = partido.getFecha();
+        	Resultado resultado = partido.getResultado();
+        	String ganador = partido.getGanador(); 
+        	int golesLocal = resultado.getGolesLocal();
+            int golesVisitante = resultado.getGolesVisitante();
+           
+            
+            String mensajePartido = "\n" + partido.getEquipoLocal().getName() + 
+                    " vs " + partido.getEquipoVisitante().getName() + 
+                    "\nFecha: " + fechaPartido +
+                    "\nResultados: " + golesLocal + "-" + golesVisitante +
+                    "\nGanador: " + ganador;
+
+            //Mensajito adicional para los casos de empates
+            if (golesLocal==golesVisitante) {
+                mensajePartido += "\nDesempate: Gana por penales " + ganador;
+            }
+
+            mensaje += mensajePartido + "\n---------------";
+        }
+        System.out.println();
+        JOptionPane.showMessageDialog(null, mensaje, "Resultados del Grupo: " + getDescripcionEtapa(), JOptionPane.INFORMATION_MESSAGE);
+        
+    }
 
 
 }

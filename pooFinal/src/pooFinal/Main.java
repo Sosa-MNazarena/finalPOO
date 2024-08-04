@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 public class Main {
 
 	public static void main(String[] args) {
+		JOptionPane.showMessageDialog(null, "**Bienvenido al simulador de la Copa del Mundo 2022**\n\nCuenta con una simulación con resultados al azar de los partidos\nde aquellos equipos que "
+				+ "que han formado parte del grupo de clasificados \npara la Copa del Mundo 2022 en Qatar.", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
 		//grupoA
 		Equipo qatar = new Equipo("Qatar", null);
 		Equipo ecuador = new Equipo("Ecuador", null);
@@ -162,55 +164,6 @@ public class Main {
 
         imprimirPuntos(grupos);
         
-        System.out.println("Puntos finales:");
-        System.out.println("Grupo A");
-        
-        for (Equipo equipo : a.getEquiposAgrupados()) {
-            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
-        }
-        System.out.println();
-        System.out.println("Grupo B");
-        for (Equipo equipo : b.getEquiposAgrupados()) {
-        	
-            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
-        }
-        System.out.println();
-        System.out.println("Grupo C");
-        for (Equipo equipo : c.getEquiposAgrupados()) {
-        	
-            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
-        }
-        System.out.println();
-        System.out.println("Grupo D");
-        for (Equipo equipo : d.getEquiposAgrupados()) {
-        	
-            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
-        }
-        System.out.println();
-        System.out.println("Grupo E");
-        for (Equipo equipo : e.getEquiposAgrupados()) {
-        	
-            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
-        }
-        System.out.println();
-        System.out.println("Grupo F");
-        for (Equipo equipo : f.getEquiposAgrupados()) {
-        	
-            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
-        }
-        System.out.println();
-        System.out.println("Grupo G");
-        for (Equipo equipo : g.getEquiposAgrupados()) {
-        	
-            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
-        }
-        System.out.println();
-        System.out.println("Grupo H");
-        for (Equipo equipo : h.getEquiposAgrupados()) {
-        	
-            System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
-        }
-        
         
         EtapaMundial faseGrupos = new EtapaMundial("Fase de Grupos", new ArrayList<>());
         ArrayList<Equipo> equiposQueAvanzan = faseGrupos.getEquiposQueAvanzanDeGrupos(grupos);
@@ -242,14 +195,14 @@ public class Main {
         cuartosDeFinal.generarResultados();
         cuartosDeFinal.resolverEmpates();
         cuartosDeFinal.imprimirPartidos();
-        //ARREGLAR (CAMBIAR) FECHAS RANDOM (PARA QUE QUEDE COMO FINAL)
+ 
     	ArrayList<LocalDate> fechasSemifinales = new ArrayList<>();
     	int diaSemifinales = 13;
-    	while (diaSemifinales <= 16) { 
+    	while (diaSemifinales <= 15) { 
     	    fechasSemifinales.add(LocalDate.of(2024, 8, diaSemifinales)); 
     	    diaSemifinales++;
     	}
-
+    
     	ArrayList<Equipo> equiposQueAvanzanDeCuartos = cuartosDeFinal.getEquiposQueAvanzanDeCuartos(equiposQueAvanzan);
 
     	Llave semifinales = new Llave("SEMIFINALES", new ArrayList<>(), equiposQueAvanzanDeCuartos, "SEMIFINALES");
@@ -266,8 +219,10 @@ public class Main {
         finalDelTorneo.generarResultados();
         finalDelTorneo.resolverEmpates();
         finalDelTorneo.imprimirPartidos();
+        
+        String campeon = finalDelTorneo.getGanadorFinal().getName();
+        JOptionPane.showMessageDialog(null,"El campón de la Copa Mundial 2022 es "+campeon , "Ganador", JOptionPane.INFORMATION_MESSAGE);
 	}
-
 
 	public static void imprimirPuntos(ArrayList<Grupo> grupos) {
 		String mensaje = "";
