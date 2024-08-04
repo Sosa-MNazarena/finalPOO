@@ -46,8 +46,8 @@ public class EtapaMundial {
 		 int localFechaIndex = fechaIndex;
 	        for (int i = 0; i < equipos.size(); i++) {
 	            for (int j = i + 1; j < equipos.size(); j++) {
-	            	if (localFechaIndex >= fechas.size()) {
-	                    break;
+	            	if (fechaIndex >= fechas.size()) {
+	                    fechaIndex = 0;
 	                }
 	                Equipo equipoLocal = equipos.get(i);
 	                Equipo equipoVisitante = equipos.get(j);
@@ -55,8 +55,16 @@ public class EtapaMundial {
 	                LocalDate fechaPartido = fechas.get(localFechaIndex);
 	                Partido partido = new Partido(fechaPartido, equipoLocal, equipoVisitante, null);
 	                this.partidos.add(partido);
-	                localFechaIndex++;
+	                fechaIndex++;
 	            }
+	        }
+	    }
+	 public void generarResultados() {
+	        for (Partido partido : partidos) {
+	            int golesLocal = (int) (Math.random() * 5);
+	            int golesVisitante = (int) (Math.random() * 5);
+	            Resultado resultado = new Resultado(golesLocal, golesVisitante);
+	            partido.setResultado(resultado);
 	        }
 	    }
 
@@ -64,7 +72,11 @@ public class EtapaMundial {
         System.out.println("Partidos del " + getDescripcionEtapa() + ":");
         for (Partido partido : this.partidos) {
         	LocalDate fechaPartido = partido.getFecha();
-            System.out.println("\n" + partido.getEquipoLocal().getName() + " vs " + partido.getEquipoVisitante().getName() + "\nFecha:" + fechaPartido);
+        	Resultado resultado = partido.getResultado();
+            System.out.println("\n" + partido.getEquipoLocal().getName() + 
+            		" vs " + partido.getEquipoVisitante().getName() + 
+            		"\nFecha:" + fechaPartido +
+            		"\nResultados: " + resultado);
         }
         System.out.println();
     }
