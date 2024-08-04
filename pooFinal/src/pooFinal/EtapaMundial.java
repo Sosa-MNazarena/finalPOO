@@ -3,6 +3,8 @@ package pooFinal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class EtapaMundial {
 	private String descripcionEtapa;
     protected ArrayList<Partido> partidos;
@@ -84,18 +86,32 @@ public class EtapaMundial {
 
     public void imprimirPartidos() {
         System.out.println("-PARTIDOS DEL " + getDescripcionEtapa() + "-");
+
+        String mensaje = "-PARTIDOS DEL " + getDescripcionEtapa() + "-\n";
+        
         for (Partido partido : this.partidos) {
         	LocalDate fechaPartido = partido.getFecha();
         	Resultado resultado = partido.getResultado();
         	String ganador = partido.getGanador(); 
         	int golesLocal = resultado.getGolesLocal();
             int golesVisitante = resultado.getGolesVisitante();
+            
             System.out.println("\n" + partido.getEquipoLocal().getName() + 
             		" vs " + partido.getEquipoVisitante().getName() + 
             		"\nFecha:" + fechaPartido +
             		"\nResultados: " + golesLocal + "-" + golesVisitante+
             		"\nGanador: "+ ganador);
+            
+            mensaje +=("\n" + partido.getEquipoLocal().getName() + 
+            		" vs " + partido.getEquipoVisitante().getName() + 
+            		"\nFecha:" + fechaPartido +
+            		"\nResultados: " + golesLocal + "-" + golesVisitante+
+            		"\nGanador: "+ ganador  + "\n---------------");
+           
         }
         System.out.println();
+        JOptionPane.showMessageDialog(null, mensaje, "Resultados del Grupo: " + getDescripcionEtapa(), JOptionPane.INFORMATION_MESSAGE);
+        
     }
+    
 }
