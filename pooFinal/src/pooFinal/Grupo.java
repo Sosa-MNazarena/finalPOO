@@ -74,14 +74,5 @@ public class Grupo extends EtapaMundial{
     }
 
 
-	public void imprimirPuntos() {
-		String mensaje = "-PUNTOS DEL " + this.getNombreGrupo() + "-\n";
-		
-		for (Equipo equipo : this.getEquiposAgrupados()){
-		mensaje += equipo.getName() + " - " + equipo.getPuntos() + " puntos\n";
-	}
 	
-	 JOptionPane.showMessageDialog(null, mensaje, "Puntos de Equipos", JOptionPane.INFORMATION_MESSAGE);
-    
-	}
 }

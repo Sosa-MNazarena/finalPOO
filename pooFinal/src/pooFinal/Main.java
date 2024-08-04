@@ -75,8 +75,7 @@ public class Main {
 	    grupos.add(f);
 	    grupos.add(g);
 	    grupos.add(h);
-	    
-		
+
 		a.addEquipo(qatar);
 		a.addEquipo(ecuador);
 		a.addEquipo(paisesbajos);
@@ -159,15 +158,8 @@ public class Main {
         f.imprimirPartidos();
         g.imprimirPartidos();
         h.imprimirPartidos();
-        
-        a.imprimirPuntos();
-        b.imprimirPuntos();
-        c.imprimirPuntos();
-        d.imprimirPuntos();
-        e.imprimirPuntos();
-        f.imprimirPuntos();
-        g.imprimirPuntos();
-        h.imprimirPuntos();
+
+        imprimirPuntos(grupos);
         
         System.out.println("Puntos finales:");
         System.out.println("Grupo A");
@@ -245,6 +237,21 @@ public class Main {
         cuartosDeFinal.generarPartidosCuartos(equiposQueAvanzanCuartos, fechasCuartos);
         cuartosDeFinal.generarResultados();
         cuartosDeFinal.imprimirPartidos();
+	}
+
+	public static void imprimirPuntos(ArrayList<Grupo> grupos) {
+		String mensaje = "";
+		
+		for (Grupo grupo : grupos) {
+	        mensaje += "-PUNTOS DEL " + grupo.getNombreGrupo() + "-\n";
+	        for (Equipo equipo : grupo.getEquiposAgrupados()) {
+	            mensaje += equipo.getName() + " - " + equipo.getPuntos() + " puntos\n";
+	        }
+	        mensaje += "---------------\n";
+	    }
+	
+	 JOptionPane.showMessageDialog(null, mensaje, "Puntos de Equipos", JOptionPane.INFORMATION_MESSAGE);
+    
 	}
 
 }
