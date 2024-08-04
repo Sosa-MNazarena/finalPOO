@@ -74,14 +74,14 @@ public class Main {
         fechas.add(LocalDate.of(2024, 7, 23));
         fechas.add(LocalDate.of(2024, 7, 24));
 		
-		Grupo a = new Grupo("Grupo A", null, null, null);
-		Grupo b = new Grupo("Grupo B", null, null, null);
-		Grupo c = new Grupo("Grupo C", null, null, null);
-		Grupo d = new Grupo("Grupo D", null, null, null);
-		Grupo e = new Grupo("Grupo E", null, null, null);
-		Grupo f = new Grupo("Grupo F", null, null, null);
-		Grupo g = new Grupo("Grupo G", null, null, null);
-		Grupo h = new Grupo("Grupo H", null, null, null);
+		Grupo a = new Grupo("GRUPO A", null, null, null);
+		Grupo b = new Grupo("GRUPO B", null, null, null);
+		Grupo c = new Grupo("GRUPO C", null, null, null);
+		Grupo d = new Grupo("GRUPO D", null, null, null);
+		Grupo e = new Grupo("GRUPO E", null, null, null);
+		Grupo f = new Grupo("GRUPO F", null, null, null);
+		Grupo g = new Grupo("GRUPO G", null, null, null);
+		Grupo h = new Grupo("GRUPO H", null, null, null);
 		
 		a.addEquipo(qatar);
 		a.addEquipo(ecuador);
@@ -123,23 +123,24 @@ public class Main {
 		h.addEquipo(coreasur);
 		h.addEquipo(ghana);
 		
-		crearPartidos(a, fechas);
-	    crearPartidos(b, fechas);
-	    crearPartidos(c, fechas);
-	    crearPartidos(d, fechas);
-	    crearPartidos(e, fechas);
-	    crearPartidos(f, fechas);
-	    crearPartidos(g, fechas);
-	    crearPartidos(h, fechas);
-	    
-	    imprimirPartidos(a);
-	    imprimirPartidos(b);
-	    imprimirPartidos(c);
-	    imprimirPartidos(d);
-	    imprimirPartidos(e);
-	    imprimirPartidos(f);
-	    imprimirPartidos(g);
-	    imprimirPartidos(h);
+        a.generarPartidos(fechas);
+        b.generarPartidos(fechas);
+        c.generarPartidos(fechas);
+        d.generarPartidos(fechas);
+        e.generarPartidos(fechas);
+        f.generarPartidos(fechas);
+        g.generarPartidos(fechas);
+        h.generarPartidos(fechas);
+
+
+        a.imprimirPartidos();
+        b.imprimirPartidos();
+        c.imprimirPartidos();
+        d.imprimirPartidos();
+        e.imprimirPartidos();
+        f.imprimirPartidos();
+        g.imprimirPartidos();
+        h.imprimirPartidos();
 		
 	}
 

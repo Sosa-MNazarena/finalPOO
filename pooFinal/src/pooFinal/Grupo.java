@@ -46,7 +46,7 @@ public class Grupo extends EtapaMundial{
 	
 	@Override
 	public String toString() {
-		return "Grupo [nombreGrupo=" + nombreGrupo + "]";
+		return "GRUPO [nombreGrupo=" + nombreGrupo + "]";
 	}
 	
 	public ArrayList<Partido> getPartidos() {
