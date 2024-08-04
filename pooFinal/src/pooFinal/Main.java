@@ -242,7 +242,7 @@ public class Main {
         cuartosDeFinal.generarResultados();
         cuartosDeFinal.resolverEmpates();
         cuartosDeFinal.imprimirPartidos();
-
+        //ARREGLAR (CAMBIAR) FECHAS RANDOM (PARA QUE QUEDE COMO FINAL)
     	ArrayList<LocalDate> fechasSemifinales = new ArrayList<>();
     	int diaSemifinales = 13;
     	while (diaSemifinales <= 16) { 
@@ -257,6 +257,15 @@ public class Main {
     	semifinales.generarResultados();
     	semifinales.resolverEmpates();
     	semifinales.imprimirPartidos();
+    	
+    	ArrayList<Equipo> equiposQueAvanzanDeSemifinales = semifinales.getEquiposQueAvanzanDeSemifinales(equiposQueAvanzanDeCuartos);
+    	LocalDate fechaFinal = (LocalDate.of(2024, 8, 17));
+
+	    Llave finalDelTorneo = new Llave("FINAL", new ArrayList<>(), equiposQueAvanzanDeSemifinales, "FINAL");
+        finalDelTorneo.generarPartidoFinal(equiposQueAvanzanDeSemifinales, fechaFinal);
+        finalDelTorneo.generarResultados();
+        finalDelTorneo.resolverEmpates();
+        finalDelTorneo.imprimirPartidos();
 	}
 
 

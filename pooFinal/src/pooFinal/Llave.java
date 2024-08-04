@@ -99,14 +99,14 @@ public class Llave extends EtapaMundial{
             System.out.println("Generado partido: " + equipo1.getName() + " vs " + equipo2.getName());
         }
     }
-    public ArrayList<Equipo> getEquiposQueAvanzanDeSemifinales(ArrayList<Equipo> todosLosEquipos) {
+    public ArrayList<Equipo> getEquiposQueAvanzanDeSemifinales(ArrayList<Equipo> equipos) {
         ArrayList<Equipo> ganadores = new ArrayList<>();
 
         for (Partido partido : this.partidos) {
             String ganadorNombre = partido.getGanador();
 
             if (ganadorNombre != null && !ganadorNombre.equals("Empate")) {
-                for (Equipo equipo : todosLosEquipos) {
+                for (Equipo equipo : equipos) {
                     if (equipo.getName().equals(ganadorNombre)) {
                         ganadores.add(equipo);
                         break;
@@ -114,7 +114,29 @@ public class Llave extends EtapaMundial{
                 }
             }
         }
+        
         return ganadores;
+    }
+
+    public void generarPartidoFinal(ArrayList<Equipo> equipos, LocalDate fechaFinal) {
+    	 Equipo equipo1 = equipos.get(0);
+         Equipo equipo2 = equipos.get(1);
+         this.partidos.add(new Partido(fechaFinal, equipo1, equipo2, null));
+    }
+    public Equipo getGanadorFinal() {
+        if (this.partidos.isEmpty()) {
+            return null;
+        }
+        
+        Partido finalPartido = this.partidos.get(0);
+        String ganadorNombre = finalPartido.getGanador();
+        
+        for (Equipo equipo : this.equiposEnfrentados) {
+            if (equipo.getName().equals(ganadorNombre)) {
+                return equipo;
+            }
+        }
+        return null;
     }
 
 	 public void resolverEmpates() {
