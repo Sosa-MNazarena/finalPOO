@@ -139,4 +139,18 @@ public class EtapaMundial {
         }
     }
     
+    public void generarPartidosCuartos(ArrayList<Equipo> equiposQueAvanzan, ArrayList<LocalDate> fechas) {
+        if (equiposQueAvanzan.size() < 8) {
+            System.out.println("No hay suficientes equipos para generar cuartos.");
+            return;
+        }
+
+        for (int i = 0; i < 8; i += 2) {
+            Equipo equipo1 = equiposQueAvanzan.get(i);
+            Equipo equipo2 = equiposQueAvanzan.get(i + 1);
+            this.partidos.add(new Partido(fechas.get(i / 2), equipo1, equipo2, null));
+
+        }
+    }
+    
 }

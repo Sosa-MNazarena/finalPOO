@@ -2,7 +2,7 @@ package pooFinal;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
+import javax.swing.JOptionPane;
 
 public class Grupo extends EtapaMundial{
 	private ArrayList<Equipo> equiposAgrupados;
@@ -13,6 +13,7 @@ public class Grupo extends EtapaMundial{
 		super(descripcionEtapa, partidos);
 		this.equiposAgrupados = new ArrayList<>();
         this.partidos = new ArrayList<>();
+        this.nombreGrupo = nombreGrupo;
 	}
 	
 	
@@ -71,10 +72,16 @@ public class Grupo extends EtapaMundial{
 	public ArrayList<Partido> getPartidos() {
         return partidos;
     }
-	
-	
-    
-    
-    
 
+
+	public void imprimirPuntos() {
+		String mensaje = "-PUNTOS DEL " + this.getNombreGrupo() + "-\n";
+		
+		for (Equipo equipo : this.getEquiposAgrupados()){
+		mensaje += equipo.getName() + " - " + equipo.getPuntos() + " puntos\n";
+	}
+	
+	 JOptionPane.showMessageDialog(null, mensaje, "Puntos de Equipos", JOptionPane.INFORMATION_MESSAGE);
+    
+	}
 }

@@ -3,6 +3,8 @@ package pooFinal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -55,14 +57,14 @@ public class Main {
 		}
         
 		
-		Grupo a = new Grupo("GRUPO A", null, null, null);
-		Grupo b = new Grupo("GRUPO B", null, null, null);
-		Grupo c = new Grupo("GRUPO C", null, null, null);
-		Grupo d = new Grupo("GRUPO D", null, null, null);
-		Grupo e = new Grupo("GRUPO E", null, null, null);
-		Grupo f = new Grupo("GRUPO F", null, null, null);
-		Grupo g = new Grupo("GRUPO G", null, null, null);
-		Grupo h = new Grupo("GRUPO H", null, null, null);
+		Grupo a = new Grupo("GRUPO A", null, null, "GRUPO A");
+		Grupo b = new Grupo("GRUPO B", null, null, "GRUPO B");
+		Grupo c = new Grupo("GRUPO C", null, null, "GRUPO C");
+		Grupo d = new Grupo("GRUPO D", null, null, "GRUPO D");
+		Grupo e = new Grupo("GRUPO E", null, null, "GRUPO E");
+		Grupo f = new Grupo("GRUPO F", null, null, "GRUPO F");
+		Grupo g = new Grupo("GRUPO G", null, null, "GRUPO G");
+		Grupo h = new Grupo("GRUPO H", null, null, "GRUPO H");
 		
 		ArrayList<Grupo> grupos = new ArrayList<>();
 		grupos.add(a);
@@ -158,8 +160,18 @@ public class Main {
         g.imprimirPartidos();
         h.imprimirPartidos();
         
+        a.imprimirPuntos();
+        b.imprimirPuntos();
+        c.imprimirPuntos();
+        d.imprimirPuntos();
+        e.imprimirPuntos();
+        f.imprimirPuntos();
+        g.imprimirPuntos();
+        h.imprimirPuntos();
+        
         System.out.println("Puntos finales:");
         System.out.println("Grupo A");
+        
         for (Equipo equipo : a.getEquiposAgrupados()) {
             System.out.println(equipo.getName() + ": " + equipo.getPuntos() + " puntos");
         }
@@ -221,8 +233,18 @@ public class Main {
         octavosDeFinal.generarResultados();
 
         octavosDeFinal.imprimirPartidos();
+        
+        ArrayList<LocalDate> fechasCuartos = new ArrayList<>();
+        int diaCuartos = 1;
+        while (diaCuartos <= 8) { 
+            fechasOctavos.add(LocalDate.of(2024, 8, diaOctavos));
+            diaCuartos++;
+        }
     
-		
+        EtapaMundial cuartosDeFinal = new EtapaMundial("Cuartos de Final", new ArrayList<>());
+        cuartosDeFinal.generarPartidosOctavos(equiposQueAvanzan, fechasOctavos);
+        cuartosDeFinal.generarResultados();
+        cuartosDeFinal.imprimirPartidos();
 	}
 
 }
