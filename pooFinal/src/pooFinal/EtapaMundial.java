@@ -83,6 +83,19 @@ public class EtapaMundial {
 	            partido.setGanador(ganador);
 	        }
 	    }
+	 
+	 public void resolverEmpates() {
+		    for (Partido partido : this.partidos) {
+		        String ganador = partido.getGanador();
+		        
+		        if ("Empate".equals(ganador)) {
+		            Equipo ganadorDesempate = Math.random() < 0.5 ? partido.getEquipoLocal() : partido.getEquipoVisitante();
+		            partido.setGanador(ganadorDesempate.getName());
+		            System.out.println("Desempate: El ganador del partido entre " + partido.getEquipoLocal().getName() 
+		                + " y " + partido.getEquipoVisitante().getName() + " es " + ganadorDesempate.getName());
+		        }
+		    }
+		}
 
     public void imprimirPartidos() {
         System.out.println("-PARTIDOS DEL " + getDescripcionEtapa() + "-");
@@ -139,32 +152,36 @@ public class EtapaMundial {
         }
     }
     
-    public void generarPartidosCuartos(ArrayList<Equipo> equiposQueAvanzan, ArrayList<LocalDate> fechas) {
+    public void generarPartidosCuartos(ArrayList<Equipo> equiposQueAvanzan, ArrayList<LocalDate> fechasCuartos) {
         if (equiposQueAvanzan.size() < 8) {
             System.out.println("No hay suficientes equipos para generar cuartos.");
             return;
         }
 
-        for (int i = 0; i < 8; i += 2) {
+        for (int i = 0; i < equiposQueAvanzan.size(); i += 2) {
             Equipo equipo1 = equiposQueAvanzan.get(i);
             Equipo equipo2 = equiposQueAvanzan.get(i + 1);
-            this.partidos.add(new Partido(fechas.get(i / 2), equipo1, equipo2, null));
+            this.partidos.add(new Partido(fechasCuartos.get(i / 2), equipo1, equipo2, null));
 
         }
     }
 
-	public ArrayList<Equipo> getEquiposQueAvanzanDeCuartos() {
-		 ArrayList<Equipo> ganadores = new ArrayList<>();
-		    
-		    for (Partido partido : this.partidos) {
-		        Equipo ganador = partido.getGanador();
-		        if (ganador != null) {
-					ganadores.add(ganador);
-				}
-		        
-		    }
-		    
-		    return ganadores;
-	}
-    
+    public ArrayList<Equipo> getEquiposQueAvanzanDeCuartos(ArrayList<Equipo> todosLosEquipos) {
+        ArrayList<Equipo> ganadores = new ArrayList<>();
+
+        for (Partido partido : this.partidos) {
+            String ganadorNombre = partido.getGanador();
+            
+            if (ganadorNombre != null && !ganadorNombre.equals("Empate")) {
+                for (Equipo equipo : todosLosEquipos) {
+                    if (equipo.getName().equals(ganadorNombre)) {
+                        ganadores.add(equipo);
+                        break;
+                    }
+                }
+            }
+        }
+        return ganadores;
+    }
+
 }
