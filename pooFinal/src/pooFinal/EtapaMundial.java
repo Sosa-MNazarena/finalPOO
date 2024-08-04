@@ -152,5 +152,19 @@ public class EtapaMundial {
 
         }
     }
+
+	public ArrayList<Equipo> getEquiposQueAvanzanDeCuartos() {
+		 ArrayList<Equipo> ganadores = new ArrayList<>();
+		    
+		    for (Partido partido : this.partidos) {
+		        Equipo ganador = partido.getGanador();
+		        if (ganador != null) {
+					ganadores.add(ganador);
+				}
+		        
+		    }
+		    
+		    return ganadores;
+	}
     
 }

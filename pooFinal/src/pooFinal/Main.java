@@ -233,16 +233,16 @@ public class Main {
         octavosDeFinal.generarResultados();
 
         octavosDeFinal.imprimirPartidos();
-        
+        ArrayList<Equipo> equiposQueAvanzanCuartos = octavosDeFinal.getEquiposQueAvanzanDeCuartos();
         ArrayList<LocalDate> fechasCuartos = new ArrayList<>();
-        int diaCuartos = 1;
-        while (diaCuartos <= 8) { 
-            fechasOctavos.add(LocalDate.of(2024, 8, diaOctavos));
+        int diaCuartos = 9;
+        while (diaCuartos <= 12) { 
+            fechasOctavos.add(LocalDate.of(2024, 8, diaCuartos));
             diaCuartos++;
         }
     
         EtapaMundial cuartosDeFinal = new EtapaMundial("Cuartos de Final", new ArrayList<>());
-        cuartosDeFinal.generarPartidosOctavos(equiposQueAvanzan, fechasOctavos);
+        cuartosDeFinal.generarPartidosCuartos(equiposQueAvanzanCuartos, fechasCuartos);
         cuartosDeFinal.generarResultados();
         cuartosDeFinal.imprimirPartidos();
 	}
