@@ -40,10 +40,9 @@ public class Grupo extends EtapaMundial{
 		this.equiposAgrupados.add(equipo);
 	}
 	
-	public void generarPartidos(ArrayList<LocalDate> fechas) {
-        super.addPartidos(this.equiposAgrupados, fechas);
-    }
-	
+	 public void generarPartidos(ArrayList<LocalDate> fechas, int fechaIndex) {
+	        super.addPartidos(this.equiposAgrupados, fechas, fechaIndex);
+	    }
 	@Override
 	public String toString() {
 		return "GRUPO [nombreGrupo=" + nombreGrupo + "]";

@@ -123,15 +123,30 @@ public class Main {
 		h.addEquipo(coreasur);
 		h.addEquipo(ghana);
 		
-        a.generarPartidos(fechas);
-        b.generarPartidos(fechas);
-        c.generarPartidos(fechas);
-        d.generarPartidos(fechas);
-        e.generarPartidos(fechas);
-        f.generarPartidos(fechas);
-        g.generarPartidos(fechas);
-        h.generarPartidos(fechas);
+		 int fechaIndex = 0;
 
+	        a.generarPartidos(fechas, fechaIndex);
+	        fechaIndex += 6;
+
+	        b.generarPartidos(fechas, fechaIndex);
+	        fechaIndex += 6;
+
+	        c.generarPartidos(fechas, fechaIndex);
+	        fechaIndex += 6;
+
+	        d.generarPartidos(fechas, fechaIndex);
+	        fechaIndex = 0;
+
+	        e.generarPartidos(fechas, fechaIndex);
+	        fechaIndex += 6;
+
+	        f.generarPartidos(fechas, fechaIndex);
+	        fechaIndex += 6;
+
+	        g.generarPartidos(fechas, fechaIndex);
+	        fechaIndex += 6;
+
+	        h.generarPartidos(fechas, fechaIndex);
 
         a.imprimirPartidos();
         b.imprimirPartidos();

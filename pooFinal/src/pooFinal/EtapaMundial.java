@@ -42,20 +42,20 @@ public class EtapaMundial {
 		return "EtapaMundial [descripcionEtapa=" + descripcionEtapa + "]";
 	}
 
-	 public void addPartidos(ArrayList<Equipo> equipos, ArrayList<LocalDate> fechas) {
-		 int fechaIndex = 0;
+	 public void addPartidos(ArrayList<Equipo> equipos, ArrayList<LocalDate> fechas, int fechaIndex) {
+		 int localFechaIndex = fechaIndex;
 	        for (int i = 0; i < equipos.size(); i++) {
 	            for (int j = i + 1; j < equipos.size(); j++) {
-	            	if (fechaIndex >= fechas.size()) {
-	                    fechaIndex = 0;
+	            	if (localFechaIndex >= fechas.size()) {
+	                    break;
 	                }
 	                Equipo equipoLocal = equipos.get(i);
 	                Equipo equipoVisitante = equipos.get(j);
 	                
-	                LocalDate fechaPartido = fechas.get(fechaIndex);
+	                LocalDate fechaPartido = fechas.get(localFechaIndex);
 	                Partido partido = new Partido(fechaPartido, equipoLocal, equipoVisitante, null);
 	                this.partidos.add(partido);
-	                fechaIndex++;
+	                localFechaIndex++;
 	            }
 	        }
 	    }
