@@ -2,7 +2,6 @@ package pooFinal;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class EtapaMundial {
 	private String descripcionEtapa;
@@ -69,14 +68,16 @@ public class EtapaMundial {
 	    }
 
     public void imprimirPartidos() {
-        System.out.println("Partidos del " + getDescripcionEtapa() + ":");
+        System.out.println("-PARTIDOS DEL " + getDescripcionEtapa() + "-");
         for (Partido partido : this.partidos) {
         	LocalDate fechaPartido = partido.getFecha();
         	Resultado resultado = partido.getResultado();
+        	 int golesLocal = resultado.getGolesLocal();
+             int golesVisitante = resultado.getGolesVisitante();
             System.out.println("\n" + partido.getEquipoLocal().getName() + 
             		" vs " + partido.getEquipoVisitante().getName() + 
             		"\nFecha:" + fechaPartido +
-            		"\nResultados: " + resultado);
+            		"\nResultados: " + golesLocal + "-" + golesVisitante);
         }
         System.out.println();
     }

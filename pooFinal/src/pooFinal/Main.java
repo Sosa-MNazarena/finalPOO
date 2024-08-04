@@ -2,7 +2,6 @@ package pooFinal;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Main {
 
@@ -105,31 +104,40 @@ public class Main {
 		h.addEquipo(coreasur);
 		h.addEquipo(ghana);
 		
-		 int fechaIndex = 0;
+		int fechaIndex = 0;
 
-	        a.generarPartidos(fechas, fechaIndex);
-	        fechaIndex += 6;
+	    a.generarPartidos(fechas, fechaIndex);
+        fechaIndex += 6;
 
-	        b.generarPartidos(fechas, fechaIndex);
-	        fechaIndex += 6;
+        b.generarPartidos(fechas, fechaIndex);
+        fechaIndex += 6;
 
-	        c.generarPartidos(fechas, fechaIndex);
-	        fechaIndex += 6;
+        c.generarPartidos(fechas, fechaIndex);
+        fechaIndex += 6;
 
-	        d.generarPartidos(fechas, fechaIndex);
-	        fechaIndex = 0;
+        d.generarPartidos(fechas, fechaIndex);
+        fechaIndex = 0;
 
-	        e.generarPartidos(fechas, fechaIndex);
-	        fechaIndex += 6;
+        e.generarPartidos(fechas, fechaIndex);
+        fechaIndex += 6;
 
-	        f.generarPartidos(fechas, fechaIndex);
-	        fechaIndex += 6;
+        f.generarPartidos(fechas, fechaIndex);
+        fechaIndex += 6;
 
-	        g.generarPartidos(fechas, fechaIndex);
-	        fechaIndex += 6;
+        g.generarPartidos(fechas, fechaIndex);
+        fechaIndex += 6;
 
-	        h.generarPartidos(fechas, fechaIndex);
-
+        h.generarPartidos(fechas, fechaIndex);
+	    
+        a.generarResultados();
+        b.generarResultados();
+        c.generarResultados();
+        d.generarResultados();
+        e.generarResultados();
+        f.generarResultados();
+        g.generarResultados();
+        h.generarResultados();
+        
         a.imprimirPartidos();
         b.imprimirPartidos();
         c.imprimirPartidos();
