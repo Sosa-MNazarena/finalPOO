@@ -49,30 +49,12 @@ public class Main {
 		Equipo coreasur = new Equipo("Corea del Sur", null);
 		
 		ArrayList<LocalDate> fechas = new ArrayList<>();
-        fechas.add(LocalDate.of(2024, 7, 1));
-        fechas.add(LocalDate.of(2024, 7, 2));
-        fechas.add(LocalDate.of(2024, 7, 3));
-        fechas.add(LocalDate.of(2024, 7, 4));
-        fechas.add(LocalDate.of(2024, 7, 5));
-        fechas.add(LocalDate.of(2024, 7, 6));
-        fechas.add(LocalDate.of(2024, 7, 7));
-        fechas.add(LocalDate.of(2024, 7, 8));
-        fechas.add(LocalDate.of(2024, 7, 9));
-        fechas.add(LocalDate.of(2024, 7, 10));
-        fechas.add(LocalDate.of(2024, 7, 11));
-        fechas.add(LocalDate.of(2024, 7, 12));
-        fechas.add(LocalDate.of(2024, 7, 13));
-        fechas.add(LocalDate.of(2024, 7, 14));
-        fechas.add(LocalDate.of(2024, 7, 15));
-        fechas.add(LocalDate.of(2024, 7, 16));
-        fechas.add(LocalDate.of(2024, 7, 17));
-        fechas.add(LocalDate.of(2024, 7, 18));
-        fechas.add(LocalDate.of(2024, 7, 19));
-        fechas.add(LocalDate.of(2024, 7, 20));
-        fechas.add(LocalDate.of(2024, 7, 21));
-        fechas.add(LocalDate.of(2024, 7, 22));
-        fechas.add(LocalDate.of(2024, 7, 23));
-        fechas.add(LocalDate.of(2024, 7, 24));
+        int dia=0;
+        while (dia<24) {
+			dia++;
+			fechas.add(LocalDate.of(2024, 7, dia));
+		}
+        
 		
 		Grupo a = new Grupo("GRUPO A", null, null, null);
 		Grupo b = new Grupo("GRUPO B", null, null, null);
